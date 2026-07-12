@@ -64,13 +64,6 @@ Simulation results include:
 - Low-Power Logic Applications
 
 
-## Research Status
-
-**Current Status:** Ongoing Research
-
-This project is being carried out as part of an academic research activity under the guidance of a faculty mentor at VIT Chennai.
-
-
 ## Author
 
 **Allen Joe A**
