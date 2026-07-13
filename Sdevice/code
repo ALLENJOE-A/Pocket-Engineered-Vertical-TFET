@@ -1,0 +1,100 @@
+File {
+   * Input Files
+   Grid=      "@tdr@"
+   Parameter= "sdevice.par"
+
+   * Output Files
+   Plot=      "@tdrdat@"
+   Current=   "@plot@"
+   Output=    "@log@"
+}
+
+Electrode {
+   * Reverted to your mesh names to prevent Exit Code 1 crashes
+   { Name="g"  Voltage=0.0 WorkFunction=4.45 }
+   { Name="d"  Voltage=0.0 }
+   { Name="s"  Voltage=0.0 }
+}
+
+Physics {
+   * Carrier Transport & Thermodynamics for TFET
+   Fermi
+   HeteroInterfaces
+   
+   * Mobility Models (Borrowed from your friend)
+   Mobility(
+      PhuMob                 * Philips Unified Mobility Model 
+      Enormal                * Surface scattering 
+      HighFieldSaturation    * High-Field Mobility Saturation 
+   )
+
+   * Recombination Models (MUST include Band2Band for your TFET)
+   Recombination(
+      SRH(DopingDep)         * Shockley-Read-Hall with Doping Dependence
+      Auger                  * Auger recombination 
+      Band2Band(Hurkx)       * CRITICAL: Tunneling physics for your project
+   )
+
+   * Heavy Doping Effects
+   EffectiveIntrinsicDensity(OldSlotboom) 
+}
+
+Math {
+   RelErrControl
+   
+   * Mathematical Precision Fixes (Great addition from your friend)
+   ExtendedPrecision       * Forces 128-bit math to eliminate sub-fA numerical noise
+   Digits=7                * Tighter convergence tolerance
+   
+   * TFET Survival Settings (Do not change these)
+   ErRef(Electron)=1.e10
+   ErRef(Hole)=1.e10
+   NotDamped=200
+   Iterations=50
+   ExitOnFailure
+   TensorGridAniso
+   
+   * Advanced solver settings
+   Method=ILS(set=1)
+   Number_Of_Threads=Maximum
+}
+
+Plot {
+   * Expanded plot outputs from your friend, plus your required Band2Band
+   eDensity hDensity
+   eCurrent hCurrent
+   TotalCurrent/Vector eCurrent/Vector hCurrent/Vector
+   eMobility hMobility
+   eVelocity hVelocity
+   eEnormal hEnormal
+   ElectricField/Vector Potential SpaceCharge
+   eQuasiFermi hQuasiFermi
+   SRH Auger
+   Band2BandGeneration     * Critical to visualize where tunneling happens
+   AvalancheGeneration
+   DonorConcentration AcceptorConcentration
+   Doping
+   BandGap BandGapNarrowing Affinity
+   ConductionBandEnergy ValenceBandEnergy
+}
+
+Solve {
+   Coupled(Iterations=100 LineSearchDamping=1e-4) { Poisson }
+   
+   Coupled { Poisson Electron Hole }
+
+   Quasistationary (
+       Goal { Name="d" Voltage=1.0 }
+       InitialStep=1e-4 MaxStep=1e-2 MinStep=1e-15 Increment=1.5
+   ) {
+       Coupled { Poisson Electron Hole }
+   }
+
+   Quasistationary (
+       DoZero
+       Goal { Name="g" Voltage=1.0 }
+       InitialStep=1e-4 MaxStep=1e-2 MinStep=1e-15 Increment=1.5
+   ) {
+       Coupled { Poisson Electron Hole }
+   }
+}
