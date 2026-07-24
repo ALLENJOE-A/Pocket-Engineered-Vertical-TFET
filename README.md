@@ -1,148 +1,157 @@
 <div align="center">
 
 # Double Gate Source-Pocket Engineered Heterogeneous Gate Dielectric Vertical TFET
-### *Optimized for Ultra-Low Power VLSI Applications*
 
-![Research](https://img.shields.io/badge/Research-Semiconductor-blue)
-![Technology](https://img.shields.io/badge/Technology-Synopsys%20Sentaurus%20TCAD-green)
-![Device](https://img.shields.io/badge/Device-DG--TFET-orange)
-![Status](https://img.shields.io/badge/Status-Completed-success)
+### Ultra-Low Power Device Design using Synopsys Sentaurus TCAD
 
----
+<img src="images/device.png" width="850">
 
-**Electronics & VLSI Engineering**  
-**VIT Chennai**
+<br>
+
+<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=600&size=22&duration=2500&pause=1000&color=00AEEF&center=true&vCenter=true&width=700&lines=Double+Gate+Vertical+TFET;Source+Pocket+Engineering;Heterojunction+Device;Ultra+Low+Power+Electronics;Synopsys+Sentaurus+TCAD">
+
+<br>
+
+![](https://img.shields.io/badge/Simulation-Sentaurus%20TCAD-blue)
+![](https://img.shields.io/badge/Technology-Beyond%20CMOS-success)
+![](https://img.shields.io/badge/Research-TFET-orange)
+![](https://img.shields.io/badge/Status-Completed-brightgreen)
 
 </div>
+> [!NOTE]
+> This repository presents the design and optimization of a **Double Gate Source-Pocket Engineered Vertical TFET** using **Synopsys Sentaurus TCAD**. The proposed architecture employs **heterojunction engineering**, **high-k gate dielectrics**, and **source-pocket optimization** to enhance band-to-band tunneling while maintaining extremely low leakage current for future ultra-low-power VLSI systems.
+## Project Highlights
 
----
+| Feature | Description |
+|---------|-------------|
+| Device | Double Gate Vertical TFET |
+| Simulation | Synopsys Sentaurus TCAD |
+| Architecture | Source Pocket Engineered |
+| Materials | GaSb / GaAsSb / GaAs |
+| Dielectric | HfO₂ + SiO₂ |
+| Ion/Ioff | >10⁸ |
+| Threshold Voltage | 0.527 V |
+| Target | Ultra-Low Power VLSI |
 
-#  Project Overview
+## Table of Contents
 
-As CMOS technology approaches its physical scaling limits, **Tunnel Field-Effect Transistors (TFETs)** have emerged as one of the most promising candidates for next-generation ultra-low-power electronics.
+- [Overview](#overview)
+- [Motivation](#motivation)
+- [Device Architecture](#device-architecture)
+- [Methodology](#simulation-methodology)
+- [Physics Models](#physics-models)
+- [Results](#simulation-results)
+- [Applications](#applications)
+- [Future Work](#future-work)
 
-This project presents the design and simulation of a **Double Gate Source-Pocket Engineered Heterogeneous Gate Dielectric Vertical TFET (DG-TFET)** using **Synopsys Sentaurus TCAD**. The proposed device integrates:
+<details>
 
-- Vertical Double-Gate Architecture
-- Source-Pocket Engineering
-- GaSb/GaAsSb/GaAs Heterojunction
-- HfO₂ High-k Gate Dielectric
-
-to improve electrostatic control, enhance Band-to-Band Tunneling (BTBT), and significantly increase ON-state current while maintaining extremely low leakage current.
-
-
-#  Objectives
-
-- Design a Vertical Double-Gate TFET architecture.
-- Improve ON-current through Source-Pocket Engineering.
-- Reduce OFF-state leakage.
-- Optimize threshold voltage.
-- Study the impact of heterogeneous materials.
-- Analyze electrical characteristics using TCAD simulations.
-
-
-#  Device Architecture
-
-| Region | Material |
-|----------|-----------|
-| Source | GaSb (P⁺) |
-| Pocket | GaAs₀.₅Sb₀.₅ (N⁺) |
-| Channel | GaAs |
-| Drain | GaAs (N⁺) |
-| Gate Dielectric | HfO₂ + SiO₂ |
-| Gate Structure | Double Gate |
-
-
-#  Software & Tools
-
-- Synopsys Sentaurus TCAD
-- Sentaurus Structure Editor (SDE)
-- Sentaurus Device (SDevice)
-- Sentaurus Visual
-
-
-#  Physics Models
-
-The following physical models were implemented during simulation:
-
-- Non-Local Hurkx Band-to-Band Tunneling
-- Shockley-Read-Hall Recombination
-- Auger Recombination
-- Bandgap Narrowing
-- High Field Saturation
-- Fermi Statistics
-- Extended Precision Solver
-
-
-#  Performance Summary
+<summary><b>Device Parameters</b></summary>
 
 | Parameter | Value |
 |-----------|-------|
-| ON Current (ION) | **7.4 × 10⁻⁷ A** |
-| Threshold Voltage | **0.527 V** |
-| Ion/Ioff Ratio | **>10⁸** |
-| OFF Current | **Sub-femtoampere** |
+| Gate Length | 30 nm |
+| Source | GaSb |
+| Channel | GaAs |
+| Pocket | GaAsSb |
 
-
-#  Simulation Results
-
-The project includes analysis of:
-
-- Transfer Characteristics (ID–VG)
-- Output Characteristics (ID–VD)
-- Electric Field Distribution
-- Energy Band Diagram
-- Electrostatic Potential
-- Bandgap Narrowing
-- Carrier Concentration
-
-
-#  Repository Structure
+</details>
 
 ```text
-DG-Source-Pocket-Engineered-Vertical-TFET
-│
-├── README.md
-├── images/
-├── results/
-├── docs/
-└── references/
-```
+        Device Concept
+              │
+              ▼
+      Geometry Creation
+              │
+              ▼
+     Material Assignment
+              │
+              ▼
+      Doping Definition
+              │
+              ▼
+      Mesh Generation
+              │
+              ▼
+   Physics Configuration
+              │
+              ▼
+     Sentaurus Device
+              │
+              ▼
+      Electrical Results
+              │
+              ▼
+      Performance Analysis
 
+      
+---
 
-#  Applications
+# Side-by-Side Images
 
-- Ultra-Low Power VLSI
-- IoT Devices
-- Edge Computing
-- Biomedical Electronics
-- Wearable Systems
-- Beyond CMOS Technology
+```markdown
+<table>
+<tr>
 
+<td align="center">
 
-#  Future Improvements
+### Device Structure
 
-- Gate-All-Around (GAA) TFET
-- Multi-Gate Architectures
-- Strain Engineering
-- Trap-Assisted Tunneling Analysis
-- Process Variation Analysis
-- Technology Scaling below 10 nm
+<img src="images/device.png" width="350">
 
+</td>
 
-#  Authors
+<td align="center">
 
-**Allen Joe A**  
-B.Tech Electronics & VLSI Engineering  
+### Energy Band
+
+<img src="images/band.png" width="350">
+
+</td>
+
+</tr>
+</table>
+
+## Simulation Results
+
+| ID-VG | ID-VD |
+|-------|--------|
+| <img src="images/idvg.png"> | <img src="images/idvd.png"> |
+
+| Electric Field | Potential |
+|----------------|-----------|
+| <img src="images/field.png"> | <img src="images/potential.png"> |
+
+📦 DG-Source-Pocket-Engineered-Vertical-TFET
+ ┣ 📂 images
+ ┣ 📂 results
+ ┣ 📂 docs
+ ┣ 📂 sde
+ ┣ 📂 sdevice
+ ┣ 📜 README.md
+ ┗ 📜 LICENSE
+
+ > [!TIP]
+> The project uses a **heterojunction source-pocket architecture** to enhance band-to-band tunneling while maintaining excellent electrostatic control.
+
+> [!IMPORTANT]
+> All simulations were performed using Synopsys Sentaurus TCAD with non-local BTBT and advanced transport models enabled.
+
+> [!WARNING]
+> The simulation files are intended for academic and research purposes only.
+
+---
+
+<div align="center">
+
+Developed by **Allen Joe A**
+
+B.Tech Electronics & VLSI Engineering
+
 VIT Chennai
 
+**Research Interests**
 
+Semiconductor Devices • TFETs • TCAD • Nanoelectronics • Ultra-Low Power VLSI
 
-#  Acknowledgement
-
-This project was carried out as part of the **Semiconductor Device Modelling** course under the guidance of the faculty of the **School of Electronics Engineering (SENSE), VIT Chennai**.
-
-
-# 📜 License
-
-This repository is intended solely for **academic, educational, and research purposes**.
+</div>
